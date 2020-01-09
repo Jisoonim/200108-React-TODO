@@ -1,8 +1,9 @@
 import React from 'react'
+import STodo from './STodo'
 
 const STodoList = ({listData, pageInfo, changePageNum}) => {
 
-    const list = listData.map(todo => <li key={todo.tno}><b>{todo.tno}</b>{todo.title}</li>)
+    const list = listData.map(todo => <li key={todo.tno}><STodo todo={todo} changePageNum={changePageNum}></STodo></li>)
 
     return (
         <div>

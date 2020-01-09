@@ -18,6 +18,15 @@ export const addToServer = async (title,targetDate) => { //async : 비동기화
     return result
 }
 
+export const deleteToServer = async(tno) => {
+
+    const result = await axios.delete('http://10.10.10.132:8080/todos/' + tno)
+    .then(response => {
+        return response
+    })
+     return result
+}
+
 export const getServerData = async (page) => {
     let res;
 
