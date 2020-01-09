@@ -7,12 +7,14 @@ import { getServerData } from "../modules/stodo";
 const STodoWrapper = () => {
 
     const [listData, setListData] = useState([])
+    const [pageInfo, setPageInfo] = useState({})
 
     const changePageNum = (pageValue) => {
         console.log("go to " + pageValue)
         getServerData(pageValue).then(res => {
             console.log("changePageNum....")
             setListData(res.content)
+            setPageInfo(res.pageInfo)
         })
     }
 
@@ -20,6 +22,7 @@ const STodoWrapper = () => {
         getServerData(1).then(res => {
             console.log("use effect")
             setListData(res.content)
+            setPageInfo(res.pageInfo)
         })
     },[])
 
@@ -28,7 +31,7 @@ const STodoWrapper = () => {
         <div>
             <h1>Todo Component with Axios</h1>
             <STodoInput changePageNum ={changePageNum}></STodoInput>
-            <STodoList listData = {listData}></STodoList>
+            <STodoList listData = {listData} pageInfo={pageInfo} changePageNum ={changePageNum}></STodoList>
         </div>
     )
 
