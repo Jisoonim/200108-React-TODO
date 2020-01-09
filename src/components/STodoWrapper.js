@@ -1,6 +1,7 @@
 import React, {useState} from 'react'
 import{getServerData} from "../modules/stodo";
 import STodoInput from './STodoInput'
+import STodoList from './STodoList';
  
 
 const STodoWrapper = () => {
@@ -16,6 +17,7 @@ const STodoWrapper = () => {
         <div>
             <h1>Todo Component with Axios</h1>
             <STodoInput movePage = {movePage}></STodoInput>
+            <STodoList></STodoList>
         </div>
     )
 }
