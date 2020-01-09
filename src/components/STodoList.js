@@ -1,14 +1,12 @@
-import React,{useEffect, useLayoutEffect} from "react"
+import React from 'react'
 
-const STodoList = () => {
+const STodoList = ({listData}) => {
 
-    useLayoutEffect(()=> {
-        console.log("TODO LIST.....")
-    })
+    const list = listData.map(todo => <li key={todo.tno}><b>{todo.tno}</b>{todo.title}</li>)
 
     return (
         <div>
-
+            {list}
         </div>
     )
 }
